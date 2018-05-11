@@ -259,7 +259,7 @@ parse_cmdline(int argc, char *argv[])
       case 'H':
         {
           if(!strchr(optarg,':')) NOTIFY(FATAL, "no ':' in http-header");
-          if((strlen(optarg) + strlen(my.extra) + 3) > 512)
+          if((strlen(optarg) + strlen(my.extra) + 3) > 16777216)
               NOTIFY(FATAL, "header is too large");
           strcat(my.extra,optarg);
           strcat(my.extra,"\015\012");
